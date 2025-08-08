@@ -2,28 +2,24 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
 }
 :root {
- --gold: #d6b452;
- --emerald: #50c878;
+ --gold: rgb(214, 180, 82);
+ --emerald: rgb(81, 200, 120);
 }
 body {
     background-color: black;
     color: #fff;
     font-family: "Manrope", sans-serif;
-    
-    
 }
 .container {
-display: grid;
-height: 100vh;
+    display: grid;
+    height: 100vh;
     grid-template-columns: 150px 1fr;
     grid-template-rows: 1fr auto;
     grid-template-areas:
         "sidebar content"
         "sidebar footer";
-    
     overflow: hidden;
     gap:5px;
 }
@@ -34,6 +30,7 @@ a {
   cursor: pointer;
   transition: all 0.2s;
 }
+
 .nav-link {
     text-transform: uppercase;
 }
@@ -51,19 +48,22 @@ a {
     width: 150px;
     height: 100%;
     border-right: 1px solid var(--gold);
-    box-shadow: 4px 0px 6px -4px lch(74.79% 54.1 89.46 / 0.65);
+    box-shadow: 4px 0px 6px -4px rgba(214, 181, 81, 0.65);
     grid-area: sidebar;
     border-radius: 10px;
 }
 .nav {
+    height: 100%;
+}
+.links {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
     align-items: center;
-    
+    list-style: none;
+    padding: 0;
 }
-
 
 .footer {
     grid-area: footer;
@@ -73,37 +73,49 @@ a {
 
 }
 .main {
+    position: relative;
     grid-area: content;
-    overflow-y: auto
+    overflow: hidden;
 }
 
-section {
-    position: relative;
+.section {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    z-index: 0;
+    
     border-left: 1px solid var(--gold);
     border-bottom:1px solid var(--gold);
-    box-shadow: 0px 6px -4px #d6b452a6;
+    box-shadow: 0px 6px -4px rgba(214, 180, 82, 0.651);
     border-radius: 10px;
-    height: 100%;
-    background-image: url(./logo/me-black.png);
-    background-repeat: no-repeat, no-repeat;
-    background-size: 500px 675px;
-    backdrop-filter: blur(7px);
-    background-position: top 16px right 20px, right 20px bottom 105px;
+    
+    background-image: url(../logo/bg-dots.png);
+    background-repeat: no-repeat;
+    background-size: 473px 253px;
+    background-position: top left;
     padding-left: 20px;
+    
 }
 .title {
     text-transform: uppercase;
     font-size: 80px;
     font-weight: 900;
+    z-index: 2;
     position: absolute;
     bottom: 0;
-    background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(214, 180, 82, 1) 50%, rgba(80, 200, 120, 1) 100%);
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(214, 180, 82, 1) 50%, #50c878 100%);
     background-size: 200%;
     background-position: 0 50%;
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: animate-background 1s infinite alternate linear;
+        animation: animate-background 0.3s infinite alternate linear;
 }
 @keyframes animate-background {
     0% {
@@ -231,11 +243,32 @@ section {
 
 .typewriter::before {
     content: "";
-    animation: typing 13.5s infinite;
+    animation: typing 5.5s infinite;
 }
 
 .typewriter::after {
     content: "";
     border-right: 1px solid var(--gold);
     animation: blink 0.5s linear infinite;
+}
+.me-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+}
+
+
+
+.section.actived {
+    transform: translateX(0%);
+    opacity: 1;
+    z-index: 10;
+}
+.section.leaving {
+    opacity: 0;
+    z-index: 5;
 }
