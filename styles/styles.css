@@ -4,8 +4,8 @@
     padding: 0;
 }
 :root {
- --gold: rgb(214, 180, 82);
- --emerald: rgb(81, 200, 120);
+ --gold: #d6b452;
+ --emerald: #51c878;
 }
 body {
     background-color: black;
@@ -281,11 +281,6 @@ a {
     padding: 50px;
 }
 
-/* @keyframes rotate {
-    100% {
-        transform: rotate(1turn);
-    }
-} */
 .about-container {
     position: relative;
     background-color:black;   
@@ -293,6 +288,7 @@ a {
     border: 1px solid rgba(214, 180, 82, 0.651);
     box-shadow: 0px 6px -4px rgba(214, 180, 82, 0.651);
     max-width: 800px;
+    height: auto;
     text-align: center;
 }
 
@@ -300,13 +296,13 @@ a {
 .about-container:after {
     content: '';
     position: absolute;
-    left: -2px;
-    top: -2px;
+    left: -3px;
+    top: -3px;
     filter: blur(10px);
     background-image: conic-gradient(from 0deg, var(--emerald), var(--gold) 90deg, var(--emerald) 180deg, var(--gold) 270deg, var(--emerald) 360deg);
     background-size: 400%;
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
+        width: calc(100% + 6px);
+        height: calc(100% + 6px);
         z-index: -1;
         animation: steam 20s linear infinite;
 }

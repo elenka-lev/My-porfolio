@@ -21,7 +21,7 @@
         <nav class="nav">
           <ul class="links">
             <li class="link"><a href="#about" class="nav-link">About me</a></li>
-            <li class="link"><a href="#" class="nav-link">Skills</a></li>
+            <li class="link"><a href="#skills" class="nav-link">Skills</a></li>
             <li class="link"><a href="#" class="nav-link">Projects</a></li>
             <li class="link"><a href="#" class="nav-link">Contacts</a></li>
           </ul>
@@ -65,9 +65,23 @@
             </p>
           </div>
         </section>
+
+        <section id="skills" class="section">
+          <div id="lottie-container" style="width: 400px; height: 400px;"></div>
+        </section>
       </main>
       <footer class="footer"></footer>
     </div>
     <script type="module" src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.0/lottie.min.js"></script>
+     <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-container'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: './wbtNqLNnnH.json'
+    });
+  </script>
   </body>
 </html>
